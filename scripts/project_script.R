@@ -42,7 +42,7 @@ x = c(0:90)
 
 library(metRology)
 
-b = dt.scaled(A, v1, Beta[2, 1], sigma1*sqrt(1/SSx))
+b = dt.scaled(bx, v1, Beta[2, 1], sigma1*sqrt(1/SSx))
 
 yx = dt.scaled(A, v1, Beta[1,1] + Beta[2, 1]*x, sigma1*sqrt((1/3646) + (1/SSx)*(x-mean(x))^2))
 
