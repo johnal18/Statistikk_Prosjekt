@@ -33,7 +33,7 @@ SSe = SSe[1,1]
 
 v1 = 3644
 s1 = SSe
-s1sigma1 = sqrt(s1/3644)
+sigma1 = sqrt(s1/3644)
 SSx = 110317
 
 t = dgamma(A,1822, SSe/2)
