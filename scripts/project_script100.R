@@ -31,7 +31,7 @@ SSe100 = SSe100[1,1]
 v1100 = 99
 s1100 = SSe100
 sigma1100 = sqrt(s1100/99)
-SSx100 = 4705.98
+SSx100 = sum((oslo100$nedbor - mean(oslo100$nedbor))^2)
 
 t100 = dgamma(A,v1100/2, SSe100/2)
 

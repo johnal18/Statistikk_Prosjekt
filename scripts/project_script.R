@@ -34,9 +34,11 @@ SSe = SSe[1,1]
 v1 = 3644
 s1 = SSe
 sigma1 = sqrt(s1/3644)
-SSx = 110317
+SSx = sum((oslo$nedbor - mean(oslo$nedbor))^2)
 
-t = dgamma(A,1822, SSe/2)
+t = dgamma(A, 1822, SSe/2)
+
+x = c(0:90)
 
 library(metRology)
 
