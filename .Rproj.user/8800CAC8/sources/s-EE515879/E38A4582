@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1586804403193.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1376766653",
+    "id" : "E38A4582",
+    "lastKnownWriteTime" : 1586804515,
+    "last_content_update" : 1586804515071,
+    "path" : "~/2020-var/Statistikk MA-171/Prosjekt/Linear_Regression/scripts/project_script100.R",
+    "project_path" : "scripts/project_script100.R",
+    "properties" : {
+        "cursorPosition" : "1,22",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
