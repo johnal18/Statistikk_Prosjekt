@@ -6,7 +6,6 @@ stavanger = data[3654:7299,]
 
 oslo = oslo[-c(883, 2970:2975),] # trekker fra de dagene som finnes i Oslo-datasettet, men ikke i Stavanger-datasettet
 
-
 clean_row_and_id(oslo, stavanger)
 
 levels(oslo$nedbor) = gsub(",", ".", levels(oslo$nedbor))
@@ -17,6 +16,9 @@ stavanger$nedbor = as.numeric(levels(stavanger$nedbor)[as.numeric(stavanger$nedb
 
 korrelasjon = find_correlation(oslo$nedbor, stavanger$nedbor, 3645)
 
+plot(oslo$nedbor, stavanger$nedbor, xlim=c(0,10), ylim=c(0,10), main = "Linær regresjon", xlab = "Oslo", ylab = "Stavanger", col = "blue")
+plot(oslo$nedbor, stavanger$nedbor, main = "Linær regresjon", xlab = "Oslo", ylab = "Stavanger", col = "blue", log="xy")
+
 X = as.matrix(data.frame(1, oslo$nedbor))
 y = as.matrix(data.frame(stavanger$nedbor))
 X.t = as.matrix(t(data.frame(1, oslo$nedbor)))
@@ -25,6 +27,10 @@ Xty = X.t %*% y
 library(matlib)
 XtXI = inv(XtX)
 Beta = XtXI %*% Xty
+
+#x verdi for å plotte linjene
+x = c(0:90)
+lines(x, Beta[1,1] + Beta[2,1]*x, col = "red")
 
 y.t = as.matrix(t(as.data.frame(y)))
 Beta.t = as.matrix(t(as.data.frame(Beta)))
@@ -39,8 +45,6 @@ SSx = sum((oslo$nedbor - mean(oslo$nedbor))^2)
 tx = c(2000:2800)/100000
 t = dgamma(tx, 1822, SSe/2)
 plot(tx, t, main = "Gamma-fordeling for støyen", xlab = "", ylab = "", col = "blue", type = "l")
-
-x = c(0:90)
 
 library(metRology)
 

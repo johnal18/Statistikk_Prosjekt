@@ -22,5 +22,3 @@ plot(stavanger$nedbor ~ oslo$nedbor, main = "Punkter for nedbør i Oslo og Stava
 
 mean(stavanger$nedbor)
 mean(oslo$nedbor)
-
-
