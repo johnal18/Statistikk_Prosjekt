@@ -44,16 +44,20 @@ yx100 = dt.scaled(A, v1100, Beta100[1,1] + Beta100[2, 1]*x, sigma1100*sqrt((1/10
 ypluss100 = dt.scaled(A, v1100, Beta100[1,1] + Beta100[2, 1]*x, sigma1100*sqrt(1 + (1/101) + (1/SSx100)*(x-mean(x))^2))
 
 #qt.scaled(0.05, 99, 0, -1)
-y1100 = Beta100[1, 1] + Beta100[2, 1]*x + 1.660391156*sigma1100*sqrt((1/101) + (1/SSx100)*(x - mean(x))^2)
-y2100 = Beta100[1, 1] + Beta100[2, 1]*x - 1.660391156*sigma1100*sqrt((1/101) + (1/SSx100)*(x - mean(x))^2)
+y1100 = Beta100[1, 1] + Beta100[2, 1]*x + 1.660391156*sigma1100*sqrt((1/101) + (1/SSx100)*(x - mean(oslo100$nedbor))^2)
+y2100 = Beta100[1, 1] + Beta100[2, 1]*x - 1.660391156*sigma1100*sqrt((1/101) + (1/SSx100)*(x - mean(oslo100$nedbor))^2)
+ypluss1100 = Beta100[1, 1] + Beta100[2, 1]*x + 1.660391156*sigma1100*sqrt(1 + (1/101) + (1/SSx100)*(x - mean(oslo100$nedbor))^2)
+ypluss2100 = Beta100[1, 1] + Beta100[2, 1]*x - 1.660391156*sigma1100*sqrt(1 + (1/101) + (1/SSx100)*(x - mean(oslo100$nedbor))^2)
 
 #plot(x = oslo100$nedbor, y = stavanger100$nedbor, type = "p", main = "Punkter for lineær regresjon",
 #     xlab = "Oslo", ylab = "Stavanger", col = "blue")
 
-plot(x, Beta100[1, 1] + Beta100[2, 1]*x, type = "l", main = "90% intervallestimat for 101 observasjoner",
+plot(x, Beta100[1, 1] + Beta100[2, 1]*x, type = "l", main = "90% kredibilitetsintervall for y(x) og neste observasjojn\n for 101 observasjoner \n",
      xlab = "Oslo", ylab = "Stavanger", col = "blue")
 #lines(x, Beta100[1, 1] + Beta100[2, 1]*x, col = "green")
 lines(x, y1100, col = "red")
 lines(x, y2100, col = "red")
+lines(x, ypluss1100, col = "green")
+lines(x, ypluss2100, col = "green")
 
 
