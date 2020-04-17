@@ -74,10 +74,12 @@ yplussx80 = c(10000:55000)/1000
 ypluss80 = dt.scaled(yplussx80, v1, Beta[1,1] + Beta[2, 1]*80, sigma1*sqrt(1 + (1/3646) + (1/SSx)*(80-mean(oslo$nedbor))^2))
 plot(yplussx80, ypluss80, main = "t-fordeling for Y+(80)", xlab = "", ylab = "", col = "blue", type = "l")
 
-#qt.scaled(0.05, 3644, 0, -1)
+#linjene for kredibilitetsintervall for y(x)
+#qt.scaled(0.05, 3644, 0, -1) = 1.645272
 y1 = Beta[1, 1] + Beta[2, 1]*x + 1.645272*sigma1*sqrt((1/3646) + (1/SSx)*(x - mean(oslo$nedbor))^2)
 y2 = Beta[1, 1] + Beta[2, 1]*x - 1.645272*sigma1*sqrt((1/3646) + (1/SSx)*(x - mean(oslo$nedbor))^2)
 
+#linjene for kredibilitetsingervall for Y+(x)
 ypluss1 = Beta[1, 1] + Beta[2, 1]*x + 1.645272*sigma1*sqrt(1 + (1/3646) + (1/SSx)*(x - mean(oslo$nedbor))^2)
 ypluss2 = Beta[1, 1] + Beta[2, 1]*x - 1.645272*sigma1*sqrt(1 + (1/3646) + (1/SSx)*(x - mean(oslo$nedbor))^2)
 

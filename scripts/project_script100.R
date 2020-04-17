@@ -47,9 +47,10 @@ y1001 = c(100:600)/100
 yx100 = dt.scaled(y1001, v1100, Beta100[1,1] + Beta100[2, 1]*1, sigma1100*sqrt((1/101) + (1/SSx100)*(1-mean(oslo100$nedbor))^2))
 plot(y1001, yx100, main = "t-fordeling for y(1) etter 100 observasjoner", xlab = "", ylab = "", col = "blue", type = "l")
 
-ypluss100 = dt.scaled(A, v1100, Beta100[1,1] + Beta100[2, 1]*x, sigma1100*sqrt(1 + (1/101) + (1/SSx100)*(x-mean(x))^2))
+#erstatt A med de x2 verdiene som viser fordelingen best
+ypluss100 = dt.scaled(A, v1100, Beta100[1,1] + Beta100[2, 1]*x, sigma1100*sqrt(1 + (1/101) + (1/SSx100)*(x-mean(oslo$nedbor))^2))
 
-#qt.scaled(0.05, 99, 0, -1)
+#qt.scaled(0.05, 99, 0, -1) = 1.660391156
 y1100 = Beta100[1, 1] + Beta100[2, 1]*x + 1.660391156*sigma1100*sqrt((1/101) + (1/SSx100)*(x - mean(oslo100$nedbor))^2)
 y2100 = Beta100[1, 1] + Beta100[2, 1]*x - 1.660391156*sigma1100*sqrt((1/101) + (1/SSx100)*(x - mean(oslo100$nedbor))^2)
 ypluss1100 = Beta100[1, 1] + Beta100[2, 1]*x + 1.660391156*sigma1100*sqrt(1 + (1/101) + (1/SSx100)*(x - mean(oslo100$nedbor))^2)
