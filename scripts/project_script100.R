@@ -33,13 +33,19 @@ s1100 = SSe100
 sigma1100 = sqrt(s1100/99)
 SSx100 = sum((oslo100$nedbor - mean(oslo100$nedbor))^2)
 
-t100 = dgamma(A,v1100/2, SSe100/2)
+tx100 = c(100:290)/10000
+t100 = dgamma(tx100,v1100/2, SSe100/2)
+plot(tx100, t100, main = "Gammafordeling for støyen", xlab = "", ylab = "", col = "blue", type = "l")
 
 library(metRology)
 
-b100 = dt.scaled(A, v1100, Beta100[2, 1], sigma1100*sqrt(1/SSx100))
+bx100 = c(-10:80)/100
+b100 = dt.scaled(bx100, v1100, Beta100[2, 1], sigma1100*sqrt(1/SSx100))
+plot(bx100, b100, main = "t-fordeling for stigningstallet b", xlab = "", ylab = "", col = "blue", type = "l")
 
-yx100 = dt.scaled(A, v1100, Beta100[1,1] + Beta100[2, 1]*x, sigma1100*sqrt((1/101) + (1/SSx100)*(x-mean(x))^2))
+y1001 = c(100:600)/100
+yx100 = dt.scaled(y1001, v1100, Beta100[1,1] + Beta100[2, 1]*1, sigma1100*sqrt((1/101) + (1/SSx100)*(1-mean(oslo100$nedbor))^2))
+plot(y1001, yx100, main = "t-fordeling for y(1) etter 100 observasjoner", xlab = "", ylab = "", col = "blue", type = "l")
 
 ypluss100 = dt.scaled(A, v1100, Beta100[1,1] + Beta100[2, 1]*x, sigma1100*sqrt(1 + (1/101) + (1/SSx100)*(x-mean(x))^2))
 
@@ -52,11 +58,13 @@ ypluss2100 = Beta100[1, 1] + Beta100[2, 1]*x - 1.660391156*sigma1100*sqrt(1 + (1
 #plot(x = oslo100$nedbor, y = stavanger100$nedbor, type = "p", main = "Punkter for lineær regresjon",
 #     xlab = "Oslo", ylab = "Stavanger", col = "blue")
 
-plot(x, Beta100[1, 1] + Beta100[2, 1]*x, type = "l", main = "90% kredibilitetsintervall for y(x) og neste observasjojn\n for 101 observasjoner \n",
+plot(x, y1100, type = "l", main = "Kredibilitetsintervall med 101 og 3646 observasjoner",
      xlab = "Oslo", ylab = "Stavanger", col = "blue")
 #lines(x, Beta100[1, 1] + Beta100[2, 1]*x, col = "green")
 lines(x, y1100, col = "red")
 lines(x, y2100, col = "red")
+lines(x, y1, col = "purple")
+lines(x, y2, col = "purple")
 lines(x, ypluss1100, col = "green")
 lines(x, ypluss2100, col = "green")
 
