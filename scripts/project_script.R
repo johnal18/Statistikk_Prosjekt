@@ -17,6 +17,8 @@ stavanger$nedbor = as.numeric(levels(stavanger$nedbor)[as.numeric(stavanger$nedb
 korrelasjon = find_correlation(oslo$nedbor, stavanger$nedbor, 3645)
 
 plot(oslo$nedbor, stavanger$nedbor, xlim=c(0,10), ylim=c(0,10), main = "Linær regresjon", xlab = "Oslo", ylab = "Stavanger", col = "blue")
+plot(x, Beta[1, 1] + Beta[2, 1]*x, xlim=c(0,30), ylim=c(0,30), col = "red", main = "Lineær regresjon", type = "l",xlab = "Oslo", ylab = "Stavanger")
+lines(x, Beta[1, 1] + Beta[2, 1]*x, col = "red")
 plot(oslo$nedbor, stavanger$nedbor, main = "Linær regresjon", xlab = "Oslo", ylab = "Stavanger", col = "blue", log="xy")
 
 X = as.matrix(data.frame(1, oslo$nedbor))
